@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const targetId = link.getAttribute('href').substring(1);
 
-      // Bölümleri değiştir
+      // İlgili içeriği göster, diğerlerini gizle
       sections.forEach(sec => {
         if (sec.id === targetId) {
           sec.classList.add('active');
@@ -16,9 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // Menü aktifliklerini değiştir
+      // Menü düğmelerinin aktiflik durumunu güncelle
       links.forEach(l => l.classList.remove('active'));
       link.classList.add('active');
+
+      // Telefonda menüye tıklandığında sayfayı yumuşakca en üste kaydır
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
 });
