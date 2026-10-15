@@ -38,11 +38,11 @@ header {
 }
 
 header img {
-  width: 75px;
-  height: 75px;
-  object-fit: cover;
+  max-width: 100px; /* İlk kodundaki orijinal maksimum genişlik değeri */
+  height: auto;     /* Oranını bozmadan orijinal yüksekliğinde kalmasını sağlar */
   border-radius: 12px;
   border: 2px solid #fef08a;
+  object-fit: contain;
 }
 
 header h1 {
