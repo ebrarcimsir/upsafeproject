@@ -187,3 +187,19 @@ main section p + h2 {
     gap: 6px;
   }
 }
+  /* Menünün ana kapsayıcısı olan Header'ı üste sabitleyin */
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Menünün diğer içeriklerin üstünde kalmasını sağlar */
+  background-color: #ffffff; /* Arka plan rengini kendi tasarımınıza göre ayarlayın */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Hafif gölge ekleyerek içerikten ayırır */
+}
+
+/* Sayfa içindeki geçişlerin (linklere tıklayınca) yumuşak kaymasını sağlar */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Menünün yüksekliği kadar pay bırakır, böylece başlıklar menünün altında kalmaz */
+}
