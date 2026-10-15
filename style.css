@@ -203,3 +203,41 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px; /* Menünün yüksekliği kadar pay bırakır, böylece başlıklar menünün altında kalmaz */
 }
+/* 1. Menü listesini esnek yapıp elemanların kaymasını/oynamasını engeller */
+header nav ul {
+  display: flex !important;
+  flex-wrap: nowrap !important; /* Alt satıra kaymayı engeller */
+  align-items: center !important;
+  justify-content: center !important; /* Veya flex-start */
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 2. Menü elemanlarının (li) sabit/düzenli durmasını sağlar */
+header nav ul li {
+  display: inline-block !important;
+  margin: 0 5px !important; /* Elemanlar arası sabit boşluk */
+}
+
+/* 3. Linklerin (a) boyutunun tıklanınca VEYA üstüne gelince DEĞİŞMESİNİ engeller */
+header nav ul li a {
+  display: inline-block !important;
+  padding: 8px 12px !important;
+  text-decoration: none !important;
+  box-sizing: border-box !important;
+  
+  /* Tıklanınca etrafta çıkan oynatıcı kenarlıkları kapatır */
+  outline: none !important;
+  border: 2px solid transparent !important; /* Varsa border kaymasını önler */
+}
+
+/* 4. Tıklanınca (active) veya odaklanınca (focus) boyut değişmesini önler */
+header nav ul li a:hover,
+header nav ul li a:focus,
+header nav ul li a:active {
+  /* Tıklandığında font-weight: bold YAPMAAYIN (oynamaya sebep olur). 
+     Onun yerine sadece renk değiştirin: */
+  font-weight: normal !important; 
+  outline: none !important;
+}
