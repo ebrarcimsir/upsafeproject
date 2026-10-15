@@ -1,63 +1,57 @@
-html {
-  height: 100%;
-  background: 50% 50% no-repeat
-    url('data:image/svg+xml,<svg viewBox="-20 -5 60 40" width="140" xmlns="http://www.w3.org/2000/svg" opacity="0.2"><path d="M1 8l11-7 11 7v8l-11 7-11-7zm0 0l11 8 11-8m0 8L12 8 1 16M12 1v7m0 8v7" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"/><text x="-12" y="32" font-size="5" font-family="monospace" fill="currentColor">Built on CodePen</text></svg>');
-/* 1. Reset ve Genel Ayarlar */
+/* --- 1. Reset ve Genel Ayarlar --- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden; /* Telefonda sağa kaymayı/beyaz boşluğu kesin olarak engeller */
+}
+
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f8fafc;
   color: #1e3a8a;
-}
-
-/* 2. Başlıklar ve Paragraflar */
-h1, h2 {
-  color: #1e3a8a;
-  font-weight: 700;
-}
-
-p {
-  color: #334155;
-  font-size: 1.05rem;
   line-height: 1.7;
 }
 
-/* 3. Header (Üst Alan) ve Logo */
+/* --- 2. Header ve Logo Tasarımı --- */
 header {
   background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
-  padding: 25px 40px;
+  padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  gap: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  width: 100%;
 }
 
 .header-content {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
 }
 
 header img {
-  max-width: 100px;
-  height: auto;
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
   border-radius: 12px;
-  border: 2px solid #fef08a; /* Soft Sarı Çerçeve */
+  border: 2px solid #fef08a;
 }
 
 header h1 {
   color: #ffffff;
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   font-weight: 600;
 }
 
-/* 4. Menü Tasarımı */
+/* --- 3. Navigasyon (Menü) --- */
 nav ul {
   list-style: none;
   display: flex;
@@ -74,64 +68,75 @@ nav ul li a {
   border-radius: 8px;
   transition: all 0.25s ease-in-out;
   background-color: rgba(255, 255, 255, 0.05);
-  cursor: pointer;
-  user-select: none;
+  display: inline-block;
 }
 
-nav ul li a:hover {
-  background-color: #fbcfe8; /* Soft Pembe */
+nav ul li a:hover,
+nav ul li a.active {
+  background-color: #fbcfe8;
   color: #0f172a;
+  font-weight: 700;
   transform: translateY(-2px);
 }
 
-/* Aktif Menü Butonu */
-nav ul li a.active {
-  background-color: #fbcfe8; /* Soft Pembe */
-  color: #0f172a;
-  font-weight: 700;
-}
-
-/* 5. Ana İçerik ve Sekme Gizleme/Gösterme Mantığı */
+/* --- 4. Ana İçerik ve Sekmeler (Section) --- */
 main {
   max-width: 950px;
-  margin: 40px auto;
+  margin: 35px auto;
   padding: 0 20px;
+  width: 100%;
 }
 
-/* Başlangıçta TÜM section'ları gizle */
 main section {
-  display: none;
+  display: none; /* Varsayılan olarak tüm sekmeler gizli */
   background-color: #ffffff;
   padding: 35px;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-  border-left: 6px solid #fef08a; /* Soft Sarı Çizgi */
+  border-left: 6px solid #fef08a;
   margin-bottom: 25px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Sadece 'active' sınıfı olan section'ı kesin olarak göster */
+/* Aktif olan sekmenin gösterilmesi */
 main section.active {
-  display: block !important;
+  display: block;
 }
 
 main section:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
+}
+
+/* --- 5. Tipografi (Başlıklar ve Paragraflar) --- */
+h1, h2 {
+  color: #1e3a8a;
+  font-weight: 700;
 }
 
 main section h2 {
-  color: #0f172a;
-  font-size: 1.8rem;
-  margin-bottom: 15px;
+  font-size: 1.6rem;
+  margin-top: 28px;
+  margin-bottom: 14px;
+  border-bottom: 3px solid #fbcfe8;
+  padding-bottom: 5px;
   display: inline-block;
-  border-bottom: 3px solid #fbcfe8; /* Başlık altı soft pembe çizgi */
-  padding-bottom: 6px;
 }
 
-/* 6. Ekstra Modern Detaylar (Scrollbar ve Metin Seçimi) */
+/* İlk başlığın üst boşluğunu sıfırla */
+main section h2:first-of-type {
+  margin-top: 0;
+}
+
+p {
+  color: #334155;
+  font-size: 1.05rem;
+  margin-bottom: 15px;
+}
+
+/* --- 6. Scrollbar ve Metin Seçim Stilleri --- */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -140,7 +145,7 @@ main section h2 {
 
 ::-webkit-scrollbar-thumb {
   background: #cbd5e1;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -151,93 +156,37 @@ main section h2 {
   background-color: #fbcfe8;
   color: #0f172a;
 }
-  /* Başlık ile paragraf arasındaki boşluğu artırıyoruz */
-main section h2 {
-  margin-bottom: 25px; /* Boşluğu artırdık */
-}
-  main section p {
-  margin-top: 10px;
-}
-  /* Başlığın hem üstündeki paragraf ile hem de altındaki paragraf ile arasını açıyoruz */
-main section h2 {
-  margin-top: 25px;    /* Bir önceki paragraf ile arasındaki boşluk */
-  margin-bottom: 25px; /* Kendisinden sonra gelen paragraf ile arasındaki boşluk */
-}
-  /* Bir paragraftan sonra gelen başlıkların üst boşluğunu artırır */
-main section p + h2 {
-  margin-top: 30px;
-}
-/* Mobil Cihazlar İçin Header Düzenlemesi (Ekran genişliği 768 pikselden küçükse) */
+
+/* --- 7. Mobil Uyumluluk (Responsive Design) --- */
 @media (max-width: 768px) {
   header {
-    flex-direction: column;   /* Her şeyi alt alta dizeceğiz */
-    align-items: center;      /* Ortalayacağız */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     padding: 20px 15px;
-    gap: 20px;                /* Logo/başlık ile menü arasına nefes alacak boşluk koyacağız */
   }
 
   .header-content {
-    flex-direction: column;   /* Mobilde logo ve başlık da alt alta dursun ki taşma yapmasın */
+    flex-direction: column;
     text-align: center;
     gap: 10px;
   }
 
   nav ul {
-    justify-content: center;  /* Menü butonlarını ortala */
+    justify-content: center;
     gap: 6px;
   }
-}
-  /* Menünün ana kapsayıcısı olan Header'ı üste sabitleyin */
-header {
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000; /* Menünün diğer içeriklerin üstünde kalmasını sağlar */
-  background-color: #ffffff; /* Arka plan rengini kendi tasarımınıza göre ayarlayın */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Hafif gölge ekleyerek içerikten ayırır */
-}
 
-/* Sayfa içindeki geçişlerin (linklere tıklayınca) yumuşak kaymasını sağlar */
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px; /* Menünün yüksekliği kadar pay bırakır, böylece başlıklar menünün altında kalmaz */
-}
-/* 1. Menü listesini esnek yapıp elemanların kaymasını/oynamasını engeller */
-header nav ul {
-  display: flex !important;
-  flex-wrap: nowrap !important; /* Alt satıra kaymayı engeller */
-  align-items: center !important;
-  justify-content: center !important; /* Veya flex-start */
-  list-style: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
+  main {
+    margin: 20px auto;
+    padding: 0 12px;
+  }
 
-/* 2. Menü elemanlarının (li) sabit/düzenli durmasını sağlar */
-header nav ul li {
-  display: inline-block !important;
-  margin: 0 5px !important; /* Elemanlar arası sabit boşluk */
-}
+  main section {
+    padding: 22px 18px;
+  }
 
-/* 3. Linklerin (a) boyutunun tıklanınca VEYA üstüne gelince DEĞİŞMESİNİ engeller */
-header nav ul li a {
-  display: inline-block !important;
-  padding: 8px 12px !important;
-  text-decoration: none !important;
-  box-sizing: border-box !important;
-  
-  /* Tıklanınca etrafta çıkan oynatıcı kenarlıkları kapatır */
-  outline: none !important;
-  border: 2px solid transparent !important; /* Varsa border kaymasını önler */
-}
-
-/* 4. Tıklanınca (active) veya odaklanınca (focus) boyut değişmesini önler */
-header nav ul li a:hover,
-header nav ul li a:focus,
-header nav ul li a:active {
-  /* Tıklandığında font-weight: bold YAPMAAYIN (oynamaya sebep olur). 
-     Onun yerine sadece renk değiştirin: */
-  font-weight: normal !important; 
-  outline: none !important;
+  main section h2 {
+    font-size: 1.3rem;
+  }
 }
