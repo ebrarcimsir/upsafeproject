@@ -321,3 +321,15 @@ footer p {
   border-radius: 12px;
   background: #000;
 }
+
+main section {
+  display: none;
+}
+
+main section.active {
+  display: block;
+}
+
+main section[hidden] {
+  display: none !important;
+}
