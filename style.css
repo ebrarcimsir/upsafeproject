@@ -8,7 +8,7 @@
 html, body {
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden; /* Telefonda sağa kaymayı/beyaz boşluğu kesin olarak engeller */
+  overflow-x: hidden;
 }
 
 body {
@@ -38,8 +38,8 @@ header {
 }
 
 header img {
-  max-width: 100px; /* İlk kodundaki orijinal maksimum genişlik değeri */
-  height: auto;     /* Oranını bozmadan orijinal yüksekliğinde kalmasını sağlar */
+  max-width: 100px;
+  height: auto;
   border-radius: 12px;
   border: 2px solid #fef08a;
   object-fit: contain;
@@ -66,6 +66,7 @@ nav ul li a {
   font-weight: 500;
   padding: 8px 14px;
   border-radius: 8px;
+  transition: all 0.25s ease-in-out;
   background-color: rgba(255, 255, 255, 0.05);
   display: inline-block;
 }
@@ -75,9 +76,10 @@ nav ul li a.active {
   background-color: #fbcfe8;
   color: #0f172a;
   font-weight: 700;
-  
+  transform: translateY(-2px);
+}
 
-/* --- 4. Ana İçerik ve Sekmeler (Section) --- */
+/* --- 4. Ana İçerik ve Sekmeler (Kutucuk Alanları) --- */
 main {
   max-width: 950px;
   margin: 35px auto;
@@ -93,9 +95,9 @@ main section {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
   border-left: 6px solid #fef08a;
   margin-bottom: 25px;
- }
+}
 
-/* Aktif olan sekmenin gösterilmesi */
+/* Aktif olan sekmenin gösterilmesi (Kutunun görünmesi) */
 main section.active {
   display: block;
 }
@@ -115,7 +117,6 @@ main section h2 {
   display: inline-block;
 }
 
-/* İlk başlığın üst boşluğunu sıfırla */
 main section h2:first-of-type {
   margin-top: 0;
 }
