@@ -308,3 +308,16 @@ footer p {
     transition-duration: 0.01ms !important;
   }
 }
+.video-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 24px auto;
+}
+
+.video-container video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  background: #000;
+}
