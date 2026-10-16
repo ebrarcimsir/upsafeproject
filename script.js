@@ -5,11 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
   links.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
-      
-      // Tıklanan linkin hedef ID'sini al (örn: #Home -> Home)
       const targetId = link.getAttribute('href').substring(1);
 
-      // Tüm section'lardan active sınıfını kaldır ve sadece hedefe ekle
       sections.forEach(sec => {
         if (sec.id === targetId) {
           sec.classList.add('active');
@@ -18,12 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // Menü linklerinin aktiflik durumunu güncelle
       links.forEach(l => l.classList.remove('active'));
       link.classList.add('active');
-
-      // Glitch ve titremeye sebep olan animasyonlu kaydırma kaldırıldı, direkt en üste alınıyor
-      window.scrollTo(0, 0);
     });
   });
 });
