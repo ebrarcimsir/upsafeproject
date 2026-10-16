@@ -76,7 +76,7 @@ nav ul li a.active {
   background-color: #fbcfe8;
   color: #0f172a;
   font-weight: 700;
-
+  transform: translateY(-2px);
 }
 
 /* --- 4. Ana İçerik ve Sekmeler (Section) --- */
@@ -95,7 +95,7 @@ main section {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
   border-left: 6px solid #fef08a;
   margin-bottom: 25px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease; /* Zıplama kaldırıldı, sadece gölge geçişi kaldı */
 }
 
 /* Aktif olan sekmenin gösterilmesi */
@@ -103,8 +103,8 @@ main section.active {
   display: block;
 }
 
+/* Zıplama (transform) tamamen kaldırıldığı için artık glitch/titreme olmayacak */
 main section:hover {
-  transform: translateY(-3px);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
 }
 
