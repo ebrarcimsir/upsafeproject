@@ -5,9 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
   links.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
+      
+      // Tıklanan linkin hedef ID'sini al (örn: #Home -> Home)
       const targetId = link.getAttribute('href').substring(1);
 
-      // İlgili içeriği göster, diğerlerini gizle
+      // Tüm section'lardan active sınıfını kaldır ve sadece hedefe ekle
       sections.forEach(sec => {
         if (sec.id === targetId) {
           sec.classList.add('active');
@@ -16,12 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // Menü düğmelerinin aktiflik durumunu güncelle
+      // Menü linklerinin aktiflik durumunu güncelle
       links.forEach(l => l.classList.remove('active'));
       link.classList.add('active');
 
-      // Telefonda menüye tıklandığında sayfayı yumuşakca en üste kaydır
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Glitch ve titremeye sebep olan animasyonlu kaydırma kaldırıldı, direkt en üste alınıyor
+      window.scrollTo(0, 0);
     });
   });
 });
